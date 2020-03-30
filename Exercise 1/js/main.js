@@ -4,20 +4,22 @@
 // qui sicuramente da cercare ci sarà il come revertare una parola.
 
 var inputUser = document.getElementById('users-input');
-
+var postEventContainer = document.getElementById('post-event');
+var outputUser = document.getElementById('output');
 
 document.getElementById('check').addEventListener("click",
   function reverseString() {
-    var splitString = inputUser.value.split("");
-    var reverseArray = splitString.reverse();
-    var joinArray = reverseArray.join("");
-    console.log(joinArray);
+    var splittedInput = inputUser.value.split("");
+    var revertedArray = splittedInput.reverse();
+    var newString = revertedArray.join("");
+    console.log(newString);
 
-    if (inputUser.value == joinArray) {
-      console.log("la parola è palindroma");
+    if (inputUser.value === newString) {
+      outputUser.innerHTML = "La parola è palindroma";
     } else {
-      console.log("la parola non è palindroma");
+      outputUser.innerHTML = "La parola non è palindroma";
     }
-    return joinArray;
+    
+    postEventContainer.style.display = "block";
   }
 );
